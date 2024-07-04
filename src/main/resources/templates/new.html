@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: common-header" />
+<body class="container-md">
+	<div th:replace="/navbar :: common-navbar" />
+	
+	<div class="container text-center">
+	<h1>Scholarship Application</h1>
+	<br />
+		<div align="center">
+			<form class="col-sm-4" action="#" th:action="@{/save}" th:object="${theapplication}" method="post">
+				<div align="left">
+					<label class="form-label">Student Name</label>
+					<input type="hidden" th:field="*{applicationid}" />
+					<input type="text" th:field="*{studentname}" class="form-control"/>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Student ID</label>
+					<input type="text" th:field="*{studentid}" class="form-control"/>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">GPA</label>
+					<input type="text" th:field="*{gpa}" class="form-control"/>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Personal Statement</label>
+					<input type="text" th:field="*{personal}" class="form-control"/>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Scholarship</label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" th:field="*{scholarshipid}" value="1" />2024 SEHS Scholarship
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" th:field="*{scholarshipid}" value="2" />EC Outstanding Awards
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" th:field="*{scholarshipid}" value="3" />2024 Part-Time Student Scholarship
+					</div>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Email</label>
+					<input type="email" th:field="*{email}" class="form-control"/>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Fund to request</label>
+					<input type="text" th:field="*{fund}" class="form-control"/>
+				</div>
+				<br>
+				<input type="hidden" th:field="*{process}" name="processing"
+					class="form-control" />
+				<br>
+				<button type="submit" class="btn btn-info">Submit</button>
+	
+			</form>
+		</div>
+	</div>
+</body>
+
+<div th:replace="/chatbot :: common-bot" />
+
+</html>

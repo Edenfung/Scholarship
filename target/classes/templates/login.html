@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: common-header" />
+<body class="container-md">
+	<div th:replace="/navbar :: common-navbar" />
+	<div align="center">
+		<h1>Admin Login</h1>
+		<br />
+		<div class="col-sm-4">
+			<form action="/login" method="POST">
+				<div align="left">
+					<label class="form-label">Account:</label>
+					<input type="text" id="username" name="username" class="form-control" required>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label" for="password">Password:</label>
+					<input type="password" id="password" name="password" class="form-control" required>
+				</div>
+				<br>
+				<div th:if="${loginError}" style="color: red;">
+					Login unsuccessful. Please check your account and password.
+				</div>
+				<br>
+				<input class="btn btn-info" type="submit" value="Login">
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>

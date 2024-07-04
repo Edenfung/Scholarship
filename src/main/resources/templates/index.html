@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: common-header" />
+<body class="container-md">
+	<div th:replace="/navbar :: common-navbar" />
+
+	<img src="https://img.freepik.com/premium-photo/shot-graduation-hats-commencement-success-graduates-university-concept-education-congratulation-graduation-ceremony-congratulated-graduates-university_109549-2851.jpg?w=1060"
+	 class="img-fluid" alt="SEHS Hong Kong Tertiary Education Scholarship" width="997px">
+	
+	<br>
+	<br>
+	<h1 style="text-indent: 5px"><img src="images/chatbot.png"> SEHS Hong Kong Tertiary Education</h1>
+	<h2 style="text-indent: 5px">Scholarship Information</h2>
+	<br>
+	<table border="1" th:each="record : ${records}" class="infor">
+            <tr>
+                <th>Name: </th>
+                <td th:text="${record.scholarshipname}"></td>
+            </tr>
+			<tr>
+				<th>Detail: </th>
+				<td th:text="${record.datail}"></td>
+			</tr>
+			<tr>
+				<th>Eligibility: </th>
+				<td th:text="${record.eligibility}"></td>
+			</tr>
+			<tr>
+				<th>Application Deadline: </th>
+				<td th:text="${record.deadline}"></td>
+			</tr>
+			<tr>
+				<th>Quota: </th>
+				<td th:text="'$' + ${record.quota}"></td>
+			</tr>
+	</table>
+	
+	<div align="center">
+		<p><a class="btn btn-primary btn-lg" th:href="@{'/new'}">Apply Now!</a></p>
+	</div>
+	
+	<div th:replace="/chatbot :: common-bot" />
+</body>
+</html>

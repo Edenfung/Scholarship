@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: common-header" />
+<body class="container-md">
+	<div th:replace="/navbar :: common-navbar" />
+	
+	<div class="container text-center">
+		<h1>Scholarship Approval</h1>
+		<br />
+
+		<div align="center">
+			<form class="col-sm-4" action="#" th:action="@{/edit}" th:object="${theapplication}"
+				method="post">
+				<div align="left">
+					<label class="form-label">Student Name: </label>
+					<input type="hidden" th:field="*{applicationid}" />
+					<input type="hidden" th:field="*{studentname}" class="form-control"/>
+					<p th:text="*{studentname}"></p>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Student ID: </label>
+					<input type="hidden" th:field="*{studentid}" class="form-control"/>
+					<p th:text="*{studentid}"></p>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">GPA: </label>
+					<input type="hidden" th:field="*{gpa}" class="form-control"/>
+					<p th:text="*{gpa}"></p>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Personal Statement</label>
+					<input type="hidden" th:field="*{personal}" class="form-control"/>
+					<p><a th:href="*{personal}" th:text="*{personal}"></a></p>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Scholarship ID: </label>
+					<input type="hidden" th:field="*{scholarshipid}" class="form-control"/>
+					<p th:text="*{scholarshipid}" class="scho"></p>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Email: </label>
+					<input type="hidden" th:field="*{email}" class="form-control"/>
+					<p th:text="*{email}"></p>
+				</div>
+				<br>
+				<div align="left">
+					<label class="form-label">Fund to request: </label>
+					<input type="hidden" th:field="*{fund}" class="form-control"/>
+					<p th:text="*{fund}"></p>
+				</div>
+				<div align="left">
+					<label class="form-label">Approval: </label>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" th:field="*{process}" placeholder="Approve" value="Approved" />Approved
+					</div>
+					<div class="form-check">
+						<input class="form-check-input" type="radio" th:field="*{process}" placeholder="Approve" value="Rejected" />Rejected
+					</div>
+				</div>
+				<br>
+				<div align="center">
+					<button type="submit" class="btn btn-info">Save</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>

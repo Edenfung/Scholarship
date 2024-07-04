@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://wwww.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/header :: common-header" />
+<body class="container-md">
+	<div th:replace="/navbar :: common-navbar" />
+		<div class="col-sm-5" align="center"></div>
+		<div class="panel-body" align="center"></div>
+		<table class="table table-striped">
+			<thead class="thread-dark">
+				<tr>
+					<th>Application ID</th>
+					<th>Student Name</th>
+					<th>Student ID</th>
+					<th>GPA</th>
+					<th>Personal Statement</th>
+					<th>Scholarship</th>
+					<th>Email</th>
+					<th>Requested Fund</th>
+					<th>Approve Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="theapplication : ${listapplication}">
+					<td th:text="${theapplication.applicationid}">Application ID</td>
+					<td>***</td>
+					<td>***</td>
+					<td th:text="${theapplication.gpa}">GPA</td>
+					<td>***</td>
+					<td th:text="${theapplication.scholarshipid}" class="scho">Scholarship</td>
+					<td>***</td>
+					<td th:text="${theapplication.fund}">Requested Fund</td>
+					<td th:text="${theapplication.process}" class="status">Approve Status</td>
+				</tr>
+			</tbody>
+		</table>
+</body>
+
+<div th:replace="/chatbot :: common-bot" />
+
+</html>
